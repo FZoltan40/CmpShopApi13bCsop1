@@ -1,4 +1,6 @@
 
+using CmpShopApi.Models;
+
 namespace CmpShopApi
 {
     public class Program
@@ -6,6 +8,8 @@ namespace CmpShopApi
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<CmpShopDbContext>();
 
             // Add services to the container.
 

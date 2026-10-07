@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CmpShopApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3988cc167d8431b349f12c5f5c67db95e2b90d83")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8f44614c70253b1522bce1d48bc900774430a4e")]
 [assembly: System.Reflection.AssemblyProductAttribute("CmpShopApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CmpShopApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
