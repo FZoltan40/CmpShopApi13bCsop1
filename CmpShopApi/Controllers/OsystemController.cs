@@ -85,5 +85,23 @@ namespace CmpShopApi.Controllers
 
             return StatusCode(404, new { message = "Üres adatbázis", result = computers });
         }
+
+        [HttpGet("oneOsystemAndComputers")]
+        public object OneOsystemAndComputers([FromQuery]Guid id)
+        {
+            var computers = context.Osystems
+                .Where(o => o.Id == id)
+                .Join(context.Computers,
+                o => o.Id,
+                c => c.OsysId,
+                (o,c) => new {o.Name,c});
+
+            if (computers != null)
+            {
+                return StatusCode(200, new { message = "Sikeres lekeérdezés", result = computers });
+            }
+
+            return StatusCode(404, new { message = "Üres adatbázis", result = computers });
+        }
     }
 }

@@ -104,13 +104,13 @@ namespace CmpShopApi.Controllers
         {
             var computers = context.Osystems
                 .Include(o => o.Computers)
-                .Select(o => new { o.Name, o.Version, o.Computers });
+                .Select(o => new { OsystemNév = o.Name, Verzió = o.Version, o.Computers });
 
             var cmp = context.Osystems
                 .Join(context.Computers,
                 o => o.Id,
                 c => c.OsysId,
-                (o, c) => new { o.Name, o.Version, c.Brand, c.Type });
+                (o, c) => new { Név = o.Name, Verzió = o.Version, Márka = c.Brand, Típus = c.Type });
 
             if (cmp != null)
             {
