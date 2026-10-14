@@ -2,6 +2,7 @@
 using CmpShopApi.Models.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CmpShopApi.Controllers
 {
@@ -96,6 +97,27 @@ namespace CmpShopApi.Controllers
             }
 
             return StatusCode(404, new { message = "Nincs találat", result = computer });
+        }
+
+        [HttpGet("allComputerAndOpsystem")]
+        public object AllComputerAndOpsystem()
+        {
+            var computers = context.Osystems
+                .Include(o => o.Computers)
+                .Select(o => new { o.Name, o.Version, o.Computers });
+
+            var cmp = context.Osystems
+                .Join(context.Computers,
+                o => o.Id,
+                c => c.OsysId,
+                (o, c) => new { o.Name, o.Version, c.Brand, c.Type });
+
+            if (cmp != null)
+            {
+                return StatusCode(200, new { message = "Sikeres lekeérdezés", result = cmp });
+            }
+
+            return StatusCode(404, new { message = "Üres adatbázis", result = cmp });
         }
 
     }

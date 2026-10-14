@@ -64,6 +64,16 @@
   },
   {
     "ContainingType": "CmpShopApi.Controllers.ComputerController",
+    "Method": "AllComputerAndOpsystem",
+    "RelativePath": "computer/allComputerAndOpsystem",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CmpShopApi.Controllers.ComputerController",
     "Method": "GetById",
     "RelativePath": "computer/byId",
     "HttpMethod": "GET",
