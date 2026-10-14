@@ -1,5 +1,84 @@
 [
   {
+    "ContainingType": "CmpShopApi.Controllers.ComputerController",
+    "Method": "AddNewCompueter",
+    "RelativePath": "computer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addNewComputerDto",
+        "Type": "CmpShopApi.Models.DTOs.AddNewComputerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CmpShopApi.Controllers.ComputerController",
+    "Method": "GetAll",
+    "RelativePath": "computer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CmpShopApi.Controllers.ComputerController",
+    "Method": "UpdateComputer",
+    "RelativePath": "computer",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateComputerDto",
+        "Type": "CmpShopApi.Models.DTOs.UpdateComputerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CmpShopApi.Controllers.ComputerController",
+    "Method": "DeleteById",
+    "RelativePath": "computer",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CmpShopApi.Controllers.ComputerController",
+    "Method": "GetById",
+    "RelativePath": "computer/byId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CmpShopApi.Controllers.OsystemController",
     "Method": "AddNewOsystem",
     "RelativePath": "osystem",
