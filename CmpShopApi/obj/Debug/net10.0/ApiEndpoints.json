@@ -133,6 +133,16 @@
   },
   {
     "ContainingType": "CmpShopApi.Controllers.OsystemController",
+    "Method": "AllOsystemAndComputer",
+    "RelativePath": "osystem/allOsystemAndComputer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CmpShopApi.Controllers.OsystemController",
     "Method": "GetAllOsystem",
     "RelativePath": "osystem/getAll",
     "HttpMethod": "GET",
