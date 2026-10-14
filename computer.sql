@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2026. Okt 14. 05:34
+-- Létrehozás ideje: 2026. Okt 14. 07:09
 -- Kiszolgáló verziója: 8.4.7
 -- PHP verzió: 8.3.28
 
@@ -26,6 +26,25 @@ USE `computer`;
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `computers`
+--
+
+DROP TABLE IF EXISTS `computers`;
+CREATE TABLE IF NOT EXISTS `computers` (
+  `Id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Brand` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Type` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Display` float NOT NULL,
+  `Memory` int NOT NULL,
+  `CreatedTime` datetime(6) NOT NULL,
+  `OsysId` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `IX_Computers_OsysId` (`OsysId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `osystems`
 --
 
@@ -37,14 +56,7 @@ CREATE TABLE IF NOT EXISTS `osystems` (
   `RegisterTime` datetime(6) NOT NULL,
   `UpdateTime` datetime(6) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- A tábla adatainak kiíratása `osystems`
---
-
-INSERT INTO `osystems` (`Id`, `Name`, `Version`, `RegisterTime`, `UpdateTime`) VALUES
-('a40d9ff7-20b3-4311-8d90-2083ca618b6f', 'Windows 7', 3, '2026-10-07 11:06:01.977217', '2026-10-07 11:06:01.977363');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -57,14 +69,24 @@ CREATE TABLE IF NOT EXISTS `__efmigrationshistory` (
   `MigrationId` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ProductVersion` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`MigrationId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- A tábla adatainak kiíratása `__efmigrationshistory`
 --
 
 INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
-('20261007072018_InitialDb', '10.0.12');
+('20261014070535_InitialDb', '10.0.12');
+
+--
+-- Megkötések a kiírt táblákhoz
+--
+
+--
+-- Megkötések a táblához `computers`
+--
+ALTER TABLE `computers`
+  ADD CONSTRAINT `FK_Computers_Osystems_OsysId` FOREIGN KEY (`OsysId`) REFERENCES `osystems` (`Id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
